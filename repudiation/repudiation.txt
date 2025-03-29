@@ -1,2 +1,10 @@
 - Briefly explain the vulnerability and why the secure version is better at preventing repudiation than the insecure version.
+Ans: The vulnerability in the insecure.ts file is the absence of logging and accountability making it impossible to trace
+who performed an action and when it occurred. This lack of accountability allows users to deny their actions without any accountability.
 - What additional security mechanisms can you incorporate to prevent such attacks?
+Ans: The additional security mechanisms we can incorporate are:
+- Digital signatures to ensure users cannot deny their actions
+- Immutable logs to prevent tampering or deletion
+- Rate limiting and IP Whitelisting to  prevent users from trying to 
+write the entire log space in memory
+-  Ensure error messages do not expose sensitive information that could aid attackers
