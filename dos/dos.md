@@ -31,5 +31,8 @@ This will create a database in MongoDB called __infodisclosure__. Verify its pre
 Answer the following:
 
 1. Briefly explain the potential vulnerabilities in **insecure.ts** that can lead to a DoS attack.
+Ans: Each incoming request triggers a findOne call on the database. If an attacker floods the endpoint with requests, this can exhaust server resources, such as the CPU and memory.
 2. Briefly explain how a malicious attacker can exploit them.
+Ans: The attacker can flood the derver with requests to the /userinfo endpoint with random or invalid id parameters. This would force the server to execute numerous database queries leading to a dos attack.
 3. Briefly explain the defensive techniques used in **secure.ts** to prevent the DoS vulnerability?
+Ans: In secure.ts the server implements a rate limiter middleware that restricts the number of requests each IP address can make within a specified time window. This prevents an attacker from flooding the server with requests.
