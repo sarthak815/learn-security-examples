@@ -30,12 +30,12 @@ This example demonstrates spoofind through two ways -- Stealing cookies programm
 ## For you to answer
 
 1. Briefly explain the spoofing vulnerability in **insecure.ts**.
-The session secret key is hardcoded, this could allow anyone to forge it. If an attackers somehow managed to get access to the cookies in an user's browser, the attacker would be able to access the user's private session. Cookie.httpOnly is set to false allowing client side scripts to manipulate session cookies. The cookie.sameSite option is not configured, making the application vulnerable to cross-site request forgery attacks.
+Ans: The session secret key is hardcoded, this could allow anyone to forge it. If an attackers somehow managed to get access to the cookies in an user's browser, the attacker would be able to access the user's private session. Cookie.httpOnly is set to false allowing client side scripts to manipulate session cookies. The cookie.sameSite option is not configured, making the application vulnerable to cross-site request forgery attacks.
 2. Briefly explain different ways in which vulnerability can be exploited.
-An attacker could steal an user's session cookies by impersonating them and gaining access to sensitive operations.
+Ans: An attacker could steal an user's session cookies by impersonating them and gaining access to sensitive operations.
 Without sameSite protection, an attacker could pass a malicious request from another domain to use the victim's session cookie allowing unauthorized actions.
 The session could easily be spoofed as the session secret key is hardcoded in the application.
 3. Briefly explain why **secure.ts** does not have the spoofing vulnerability in **insecure.ts**.
-The problems were adressed in the secure file by:
+Ans: The problems were adressed in the secure file by:
 - Secure session configurations by setting cookie.httpOnly to true, cookie.sameSite as true. These are helpful in preventing CSRF and XSS attacks on the server.
-- THe session secret is now dynamically passes via a command-line argument instead of being hardcoded. This makes it very hard for attackers to forge valid session cookies
+- The session secret is now dynamically passes via a command-line argument instead of being hardcoded. This makes it very hard for attackers to forge valid session cookies.
